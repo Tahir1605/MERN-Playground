@@ -7,6 +7,7 @@ const CartContext = createContext()
 export const CartContextProvider = ({children}) => {
     const [products,setProducts] = useState([]);
     const [cartItems,setCartItems] = useState([]);
+    const [searchTerm,setSearchTerm] = useState("")
 
     useEffect(()=>{
         const fetchData = async () => {
@@ -59,7 +60,9 @@ export const CartContextProvider = ({children}) => {
           cartItems,
           addToCart,
           removeCart,
-          updateQuantity
+          updateQuantity,
+          searchTerm,
+          setSearchTerm
     }
     return(
         <CartContext.Provider value={value}>
