@@ -1,0 +1,63 @@
+// <div className="bg-gray-900 flex justify-center min-h-screen p-10">
+    //   <motion.div 
+      // drag
+      // whileDrag={{
+      //   scale:0.8
+      // }}
+      // dragConstraints={{
+      //   left:0,
+      //   right:0,
+      //   bottom:0,
+      //   top:0
+      // }}
+      // dragDirectionLock='true'
+      // whileHover={{
+      //   backgroundColor:'blue',
+      // }}
+
+      // whileTap={{
+      //   scale:0.8,
+        // scaleX:3,
+        // scaleY:3,
+
+      // }}
+    
+
+      // initial={{
+      //   x:100,
+      // }}
+
+      // animate={{
+      //   // x:600,
+      //   // rotate:360
+
+      //   x:[0,600,600,0,0],
+      //   y:[0,0,300,300,0],
+      //   rotate:[0,360,0,-360,0]
+      // }}
+
+      // transition={{
+      //   duration:4,
+      //   delay:1,
+      //   repeat:Infinity
+        // duration:2,
+        // delay:1,
+        // repeat:Infinity,
+        // ease:"anticipate"
+        // ease:"backIn"
+        // ease:"backInOut"
+        // ease:"backOut"
+        // ease:"circIn"
+        // ease:"circInOut"
+        // ease:"circOut"
+        // ease:"easeIn",
+        // ease:"easeInOut",
+        // ease:"easeOut",
+        // ease:"linear"
+      // }}
+      // className="w-[200px] h-[200px] border-3 border-white rounded-md bg-red-600">
+      // </motion.div>
+      {/* <motion.div 
+
+      className='w-[200px] h-[200px] border-3 border-white bg-blue-600 rounded-full'></motion.div> */}
+    // </div>
