@@ -2,7 +2,9 @@ import React from 'react'
 
 const Second = () => {
   return (
-    <div>Second</div>
+    <div className='bg-gray-950 min-h-screen'>
+      
+    </div>
   )
 }
 

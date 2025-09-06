@@ -1,7 +1,8 @@
-import React from 'react'
-import { motion } from 'motion/react'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
 
 const Home = () => {
+    const [isOpen, setIsOpen] = useState(false)
     return (
         <div className='bg-gray-950 min-h-screen flex items-center flex-col'>
             <motion.div
@@ -14,7 +15,13 @@ const Home = () => {
                     scale: 1
                 }}
                 transition={{
-                    duration: 0.8
+                    duration: 0.8,
+                    delay: 0.1,
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 10,
+                    // mass:3,
+                    // velocity:10
                 }}
                 className='bg-red-500 w-[80%] border-white border-4 rounded-md h-[400px] my-20'>
             </motion.div>
@@ -28,7 +35,13 @@ const Home = () => {
                     translateX: 0,
                 }}
                 transition={{
-                    duration: 0.8
+                    duration: 0.8,
+                    delay: 0.1,
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 10,
+                    // mass:3,
+                    // velocity:10
                 }}
                 className='bg-amber-500 w-[80%] border-white border-4 rounded-md h-[400px] my-20'>
             </motion.div>
@@ -42,7 +55,13 @@ const Home = () => {
                     rotateX: 0,
                 }}
                 transition={{
-                    duration: 0.8
+                    duration: 0.8,
+                    delay: 0.1,
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 10,
+                    // mass:3,
+                    // velocity:10
                 }}
                 className='bg-blue-500 w-[80%] border-white border-4 rounded-md h-[400px] my-20'>
             </motion.div>
@@ -65,48 +84,84 @@ const Home = () => {
 
 
             <div className='flex justify-center gap-5'>
-                <motion.div 
-                initial={{
-                    opacity: 0,
-                    translateY:"-10%",
-                }}
-                whileInView={{
-                    opacity: 1,
-                    translateY: 0,
-                }}
-                transition={{
-                    duration: 0.8,
-                    delay:0.3
-                }}
-                className='bg-sky-300 border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
-                <motion.div 
-                initial={{
-                    opacity: 0,
-                    translateY:"-10%",
-                }}
-                whileInView={{
-                    opacity: 1,
-                    translateY: 0,
-                }}
-                transition={{
-                    duration: 0.8,
-                    delay:0.6
-                }}
-                className='bg-emerald-500 border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
-                <motion.div 
-                initial={{
-                    opacity: 0,
-                    translateY:"-10%",
-                }}
-                whileInView={{
-                    opacity: 1,
-                    translateY: 0,
-                }}
-                transition={{
-                    duration: 0.8,
-                    delay:0.9
-                }}
-                className='bg-purple-600 border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        translateY: "-10%",
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        translateY: 0,
+                    }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0.3,
+                        type: 'spring',
+                        stiffness: 200,
+                        damping: 10,
+                        // mass:3,
+                        // velocity:10
+
+                    }}
+                    className='bg-sky-300 cursor-pointer border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        translateY: "-10%",
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        translateY: 0,
+                    }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0.6,
+                        type: 'spring',
+                        stiffness: 200,
+                        damping: 10,
+                        // mass:3,
+                        // velocity:10
+                    }}
+                    className='bg-emerald-500 border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        translateY: "-10%",
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        translateY: 0,
+                    }}
+                    transition={{
+                        duration: 0.8,
+                        delay: 0.9,
+                        type: 'spring',
+                        stiffness: 200,
+                        damping: 10,
+                        // mass:3,
+                        // velocity:10
+                    }}
+                    className='bg-purple-600 border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
+            </div>
+
+
+            <div className='flex justify-center gap-5'>
+                <motion.div
+                    whileHover={{
+                        scale: 1.1,
+                    }}
+                    transition={{
+                        duration: 0.1,
+                        type: 'spring',
+                        stiffness: 100,
+                    }}
+                    className='py-6 px-10 my-20 rounded-md bg-sky-600 cursor-pointer w-32'
+                >
+                </motion.div>
+            </div>
+
+            <div className="flex flex-col items-center gap-1 my-16">
+              
             </div>
 
 
