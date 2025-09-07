@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+
+import { motion } from 'motion/react'
 
 const Home = () => {
-    const [isOpen, setIsOpen] = useState(false)
+    
     return (
         <div className='bg-gray-950 min-h-screen flex items-center flex-col'>
             <motion.div
@@ -93,6 +93,12 @@ const Home = () => {
                         opacity: 1,
                         translateY: 0,
                     }}
+                    whileHover={{
+                        // rotate:5,
+                        // scale:1.1,
+                        translateX:10,
+                        translateY:20
+                    }}
                     transition={{
                         duration: 0.8,
                         delay: 0.3,
@@ -109,6 +115,7 @@ const Home = () => {
                         opacity: 0,
                         translateY: "-10%",
                     }}
+              
                     whileInView={{
                         opacity: 1,
                         translateY: 0,
@@ -122,7 +129,7 @@ const Home = () => {
                         // mass:3,
                         // velocity:10
                     }}
-                    className='bg-emerald-500 border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
+                    className='bg-emerald-500 cursor-pointer border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
                 <motion.div
                     initial={{
                         opacity: 0,
@@ -132,6 +139,7 @@ const Home = () => {
                         opacity: 1,
                         translateY: 0,
                     }}
+                  
                     transition={{
                         duration: 0.8,
                         delay: 0.9,
@@ -141,7 +149,7 @@ const Home = () => {
                         // mass:3,
                         // velocity:10
                     }}
-                    className='bg-purple-600 border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
+                    className='bg-purple-600 cursor-pointer border-white border-4 w-[250px] h-[400px] my-10 rounded-md'></motion.div>
             </div>
 
 
@@ -161,10 +169,24 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col items-center gap-1 my-16">
-              
+                <div className="inline-block">
+                    <motion.h1
+                        className="text-white cursor-pointer text-4xl font-semibold font-serif relative inline-block"
+                        whileHover="hover"
+                    >
+                        Tahirul islam
+                        <motion.span
+                            className="absolute left-0 bottom-0 h-1 bg-white origin-left"
+                            initial={{ scaleX: 0 }}
+                            variants={{
+                                hover: { scaleX: 1 },
+                            }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            style={{ width: "100%" }}
+                        />
+                    </motion.h1>
+                </div>
             </div>
-
-
 
         </div>
 
