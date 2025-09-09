@@ -1,0 +1,91 @@
+*********** Basic Authentication **********
+
+Step 1 :-> install jsonwebtoken
+
+ -> npm i jsonwebtoken;
+
+ in controller -> 
+
+ authController -> 
+
+ import jwt from 'jsonwebtoken';
+
+const createToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET);
+}
+
+const loginUser = async (req, res) => {
+    try {
+
+        const { email, password } = req.body;
+
+        const existingUser = await Auth.findOne({ email });
+
+        if (!existingUser) {
+            return res.json({
+
+                success: false,
+                message: "User not exists"
+            })
+        }
+
+        const isMatch = await bcrypt.compare(password, existingUser.password);
+
+        if (isMatch) {
+            const token = createToken(existingUser._id);
+            return res.json({ 
+                success: true,
+                token 
+            });
+        }
+        else {
+            return res.json({ 
+                success: false,
+                message: 'Invalid credentials' });
+        }
+
+
+    } catch (error) {
+
+          res.json({
+            success:false,
+            message:error.message || "Internal server error"
+          })
+    }
+}
+
+export {loginUser}
+
+
+in router -> 
+
+authRouter.post('/login',loginUser)
+
+app.use('/api/auth',authRouter)
+
+
+          ********** CORS *********
+CORS -> (cross origin resource sharing)
+
+Step 1:-> 
+
+npm i cors 
+
+in server.js ->
+
+Type -> 1
+
+import cors from 'cors'
+
+app.use(cors({
+  origin: CORS_ORIGIN, -> this is the port where frontend is running
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
+Type -> 2
+
+app.use(cors()) -> this allow all the frontend routes for accessing 
+Our website backend url
+
+1 -> BasicCors -> EmailSend -> FullCrud -> AdvanceAuth
