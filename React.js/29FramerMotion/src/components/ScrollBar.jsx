@@ -3,7 +3,7 @@ import {motion , useScroll} from 'motion/react'
 
 const ScrollBar = () => {
     const {scrollYProgress} = useScroll()
-    console.log(scrollYProgress);
+   
     
   return (
     <motion.div

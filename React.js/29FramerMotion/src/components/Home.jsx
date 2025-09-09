@@ -1,8 +1,19 @@
 
-import { motion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
+import { useEffect, useState } from 'react';
 
 const Home = () => {
-    
+
+    const roles = ['Frontend Developer', 'Backend Developer', 'Full Stack Developer', 'MERN Stack Developer', 'React.js Developer', 'Node.js Developer']
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prevIndex) => (prevIndex + 1) % roles.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className='bg-gray-950 min-h-screen flex items-center flex-col'>
             <motion.div
@@ -96,8 +107,8 @@ const Home = () => {
                     whileHover={{
                         // rotate:5,
                         // scale:1.1,
-                        translateX:10,
-                        translateY:20
+                        translateX: 10,
+                        translateY: 20
                     }}
                     transition={{
                         duration: 0.8,
@@ -115,7 +126,7 @@ const Home = () => {
                         opacity: 0,
                         translateY: "-10%",
                     }}
-              
+
                     whileInView={{
                         opacity: 1,
                         translateY: 0,
@@ -139,7 +150,7 @@ const Home = () => {
                         opacity: 1,
                         translateY: 0,
                     }}
-                  
+
                     transition={{
                         duration: 0.8,
                         delay: 0.9,
@@ -186,6 +197,21 @@ const Home = () => {
                         />
                     </motion.h1>
                 </div>
+            </div>
+
+            <div className='flex flex-col my-20'>
+                <AnimatePresence mode="wait">
+                    <motion.h2
+                        key={roles[index]}
+                        className="text-4xl font-bold font-serif text-white"
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -40 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        {roles[index]}
+                    </motion.h2>
+                </AnimatePresence>
             </div>
 
         </div>
