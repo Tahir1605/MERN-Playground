@@ -4,6 +4,12 @@ import { useEffect, useState } from 'react';
 
 const Home = () => {
 
+    const cardVariants = {
+        hidden: { opacity: 0, y: -100 },
+        visible: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: 100 },
+    };
+
     const roles = ['Frontend Developer', 'Backend Developer', 'Full Stack Developer', 'MERN Stack Developer', 'React.js Developer', 'Node.js Developer']
     const [index, setIndex] = useState(0);
 
@@ -25,35 +31,50 @@ const Home = () => {
                     opacity: 1,
                     scale: 1
                 }}
+                exit={{
+                    opacity:0,
+                    scale:0
+                }}
                 transition={{
                     duration: 0.8,
                     delay: 0.1,
                     type: 'spring',
-                    stiffness: 100,
-                    damping: 10,
+                    stiffness: 80,
+                    // damping: 10,
                     // mass:3,
                     // velocity:10
+                }}
+                viewport={{
+                    once:false,
+                    amount:0.3
                 }}
                 className='bg-red-500 w-[80%] border-white border-4 rounded-md h-[400px] my-20'>
             </motion.div>
             <motion.div
-                initial={{
-                    opacity: 0,
-                    translateX: "-100%",
-                }}
-                whileInView={{
-                    opacity: 1,
-                    translateX: 0,
-                }}
-                transition={{
-                    duration: 0.8,
-                    delay: 0.1,
-                    type: 'spring',
-                    stiffness: 100,
-                    damping: 10,
-                    // mass:3,
-                    // velocity:10
-                }}
+
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                exit="exit"
+                transition={{ duration: 0.6, type: "spring", stiffness: 80 }}
+                viewport={{ once: false, amount: 0.3 }}
+                // initial={{
+                //     opacity: 0,
+                //     translateX: "-100%",
+                // }}
+                // whileInView={{
+                //     opacity: 1,
+                //     translateX: 0,
+                // }}
+                // transition={{
+                //     duration: 0.8,
+                //     delay: 0.1,
+                //     type: 'spring',
+                //     stiffness: 100,
+                //     damping: 10,
+                // mass:3,
+                // velocity:10
+                // }}
                 className='bg-amber-500 w-[80%] border-white border-4 rounded-md h-[400px] my-20'>
             </motion.div>
             <motion.div
