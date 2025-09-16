@@ -4,6 +4,8 @@ import Home from "./components/Home"
 import First from "./components/First"
 import Second from "./components/Second"
 import ScrollBar from "./components/ScrollBar"
+import Third from "./components/Third"
+import Fourth from "./components/Fourth"
 
 const App = () => {
   const router = createBrowserRouter([
@@ -33,6 +35,20 @@ const App = () => {
             <Second/>
           </div>
         },
+        {
+          path:'/third',
+          element:
+          <div>
+            <Third/>
+          </div>
+        },
+        {
+          path:'/fourth',
+          element:
+          <div>
+            <Fourth/>
+          </div>
+        }
   ])
   return(
     <div>
